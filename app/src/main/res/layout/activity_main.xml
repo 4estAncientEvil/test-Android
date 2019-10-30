@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@drawable/bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <Button
+            android:id="@+id/bCreate"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/ovalcopy"
+            android:gravity="center"
+            android:text="@string/create_new_notification"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorWhite"
+            android:textSize="22sp" />
+
+    <TextView
+            android:id="@+id/tvNumberOfActivity"
+            android:background="@drawable/rectangle"
+            android:layout_height="55dp"
+            android:layout_width="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text=""
+            android:textSize="30sp"
+            android:textColor="@color/colorBlue"
+            android:gravity="center"/>
+
+    <ImageButton
+            android:id="@+id/ibPlus"
+            style="@android:style/Widget.DeviceDefault.ImageButton"
+            android:layout_width="61dp"
+            android:layout_height="76dp"
+            android:layout_alignEnd="@+id/tvNumberOfActivity"
+            android:layout_alignTop="@+id/tvNumberOfActivity"
+            android:layout_alignBottom="@+id/tvNumberOfActivity"
+            android:layout_marginRight="-5dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/blue"
+            android:onClick="createNewActivity"
+            android:src="@drawable/plus"/>
+
+</RelativeLayout>
