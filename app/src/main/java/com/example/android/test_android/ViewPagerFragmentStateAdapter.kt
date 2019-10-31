@@ -3,12 +3,13 @@ package com.example.android.test_android
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.PagerAdapter
 
 class ViewPagerFragmentStateAdapter(
         fm: FragmentManager
-) : FragmentStatePagerAdapter(
+) : FragmentPagerAdapter(
         fm,
         BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
 ) {
@@ -50,7 +51,13 @@ class ViewPagerFragmentStateAdapter(
 
     fun dec(): Int {
         itemCount--
-        container.removeAt(itemCount)
+        val fragment = container[itemCount]
+        container.remove(fragment)
+        fragment.fragmentManager
+                ?.beginTransaction()
+                ?.remove(fragment)
+                ?.commit()
+
         this.notifyDataSetChanged()
         return itemCount
     }
