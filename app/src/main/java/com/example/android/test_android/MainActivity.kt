@@ -16,9 +16,11 @@ class MainActivity : AppCompatActivity() {
         viewPager.adapter = adapter
 
         fabPlus.setOnClickListener {
-            if(adapter.inc() > 1){
+            val itemNo = adapter.inc()
+            if(itemNo > 1){
                 fabMinus.visibility = View.VISIBLE
             }
+            viewPager.setCurrentItem(itemNo.minus(1), true)
         }
 
         fabMinus.setOnClickListener {
