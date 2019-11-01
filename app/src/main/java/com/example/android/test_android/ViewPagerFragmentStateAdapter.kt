@@ -4,7 +4,6 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.PagerAdapter
 
 class ViewPagerFragmentStateAdapter(
@@ -23,7 +22,7 @@ class ViewPagerFragmentStateAdapter(
         val fragment = container[position]
         fragment.apply {
             arguments = bundleOf(
-                "position" to position.plus(1)
+                    "position" to position.plus(1)
             )
         }
         return fragment

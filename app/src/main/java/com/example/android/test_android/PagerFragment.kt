@@ -20,12 +20,13 @@ class PagerFragment : Fragment() {
         return inflater.inflate(R.layout.item_page, container, false)
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         arguments?.let {
             val applicationContext = this.activity!!.applicationContext
             val position = it.getInt("position")
-            tvNumberOfActivity.text = position.toString()
 
+            tvNumberOfActivity.text = position.toString()
             bCreate.setOnClickListener {
                 val builder = NotificationCompat.Builder(
                         applicationContext, Notification.CATEGORY_MESSAGE)
@@ -33,13 +34,12 @@ class PagerFragment : Fragment() {
                         .setContentText("Notification $position")
                         .setSmallIcon(R.mipmap.ic_launcher)
                         .setLargeIcon(BitmapFactory.decodeResource(applicationContext.resources,
-                                R.mipmap.ic_launcher))
+                                R.drawable.bluef))
 
                 val id = (0..Int.MAX_VALUE).random()
                 n.add(id)
 
                 with(NotificationManagerCompat.from(applicationContext)) {
-                    // notificationId is a unique int for each notification that you must define
                     notify(id, builder.build())
                 }
             }

@@ -8,7 +8,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -18,14 +17,14 @@ class MainActivity : AppCompatActivity() {
 
         fabPlus.setOnClickListener {
             val itemNo = adapter.inc()
-            if(itemNo > 1){
+            if (itemNo > 1) {
                 fabMinus.visibility = View.VISIBLE
             }
             viewPager.setCurrentItem(itemNo.minus(1), true)
         }
 
         fabMinus.setOnClickListener {
-            if(adapter.dec() == 1){
+            if (adapter.dec() == 1) {
                 it.visibility = View.GONE
             }
         }
